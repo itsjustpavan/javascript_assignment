@@ -1,0 +1,140 @@
+1. List all the DOM objects names below.
+Document, Event , Element, Attribute , Style
+
+2. List all the BOM objects names below.
+Navigator , Screen , Location , Window , History
+
+3.1. Find out most commonly used functions(minimum 4) of "document" object and write their purpose with a code snippet which proves the purpose.
+1) close() -
+ The close() method closes the output stream previously opened with the document.open() method
+document.close
+
+2) createEvent()	
+Creates a new event
+document.createevent
+
+3) getElementById()
+Returns the element that has the ID attribute with the specified value
+document.getElementById()
+
+4) open()	
+Opens an HTML output stream to collect output from document.write()
+document.open()
+
+3.2. Find out most commonly used functions(minimum 4) of "window" object and write their purpose with a code snippet which proves the purpose.
+1) blur()
+The blur() method removes focus from the current window.
+window.blur()
+
+2)alert()
+Displays an alert box with a message and an OK button
+alert(message)
+
+3)open()
+Opens a new browser window
+window.open(URL, name, specs, replace)
+
+4)print()
+Prints the content of the current window
+window.print()
+
+4. Create an HTML page with a button on it, when the button is clicked, it should display an alert box with text "Hello World"
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Alert</h2>
+
+<button onclick="myFunction()">Try it</button>
+
+<script>
+function myFunction() {
+    alert("Hello world ");
+}
+</script>
+
+</body>
+</html>
+
+
+5. Create an HTML page with a button on it, when the button is clicked, it should display the text "Hello World" on the page.
+NOTE: The buttton might have gone after text appears.
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Alert</h2>
+
+<button onclick="myFunction()">Try it</button>
+
+<script>
+function myFunction() {
+    document.write("<h1> Hello world </h1> ");
+}
+</script>
+
+</body>
+</html>
+
+6. Create an HTML page with a button on it, when the button is clicked, it should display the text "Hello World" on the page, just below the button.
+NOTE: This time the button should not go off, it is still visible and present on the page.
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"> </p>
+
+<button onclick="myFunction()">Try it</button>
+
+<script>
+function myFunction() {
+    document.getElementById("demo").innerHTML="Hello world";
+}
+</script>
+
+</body>
+</html>
+
+
+
+7. Create an HTML Page with a textbox and a button, write anything in the text box and click on the button, Onclick of the button it should display the text on the alert box that was entered in the textbox.
+<!DOCTYPE html>
+<html>
+<body>
+
+Name=<input type="text" id="myText" value="">
+
+<p id="demo"></p>
+
+<button onclick="hi()"> try it </button>
+<script>
+function hi()
+{
+var y=document.getElementById("myText").value;
+document.getElementById("demo").innerHTML=alert(y);
+}
+</script>
+</body>
+</html>
+
+
+8. Create an HTML Page with a textbox and a button, write anything in the text box and click on the button, Onclick of the button it should display the text just below the textbox on the webpage that was entered in the textbox.
+<!DOCTYPE html>
+<html>
+<body>
+
+Name=<input type="text" id="myText" value="">
+
+<p id="demo"></p>
+
+<button onclick="hi()"> try it </button>
+<script>
+function hi()
+{
+var y=document.getElementById("myText").value;
+document.getElementById("demo").innerHTML=y;
+}
+</script>
+</body>
+</html>
