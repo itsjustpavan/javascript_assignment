@@ -1,0 +1,95 @@
+1)Assignment 1: 
+Create a simple page that lets users type in some temperature value in the Fahrenheit scale and when the user clicks a “Show results” button, to show the temperature in Celsius scale. For example, if the user types in 32, your results should show “0 degree Celsius.”
+Functionality
+At the least, your program should allow for the following
+User Input: One text field where the user will type in the temperature in Fahrenheit
+Input Validation: When the “Show results” button is clicked, your program should check to see if the user has left the text field empty and also if what the user typed is a number and not anything else.
+If there are problems (as in II. above) then your program should show appropriate error messages
+Display results: If there are no errors and user input is valid, then your program should show the results to the user.
+
+<!DOCTYPE html>
+<html>
+<body>
+
+temperature in f =
+<input id="num1" type="number" name="temperature" value="" required>
+<button onclick="myFunction()"> click </button>
+<p id="demo"></p>
+<script type="text/javascript">
+function myFunction()
+{
+var x =document.getElementById("num1").value, cel=0;
+cel= (x - 32) * 5/9;
+document.getElementbyId("demo").innerHTML = cel + " degree celcius";
+}
+</script>
+</body>
+</html>
+
+2 )<!DOCTYPE html>
+<html>
+<title>Fahrenheit to Celcius Temperature Converter</title>
+<body>
+
+<h2>Temperature Converter</h2>
+<p>Type a value in the Fahrenheit field to convert the value to Celsius:</p>
+
+<p>
+  <label>Fahrenheit</label>
+  <input id="inputFahrenheit" type="number" placeholder="Fahrenheit" required>
+</p>
+<p id="outputCelcius">Celcius</p>
+<button onClick="temperatureConverter()"> Click </button>
+<script>
+function temperatureConverter() {
+var valNum=document.getElementById("inputFahrenheit").value;
+  valNum = parseFloat(valNum);
+  document.getElementById("outputCelcius").innerHTML=(valNum-32)/1.8;
+}
+</script>
+
+</body>
+</html>
+
+
+
+2) Assignment 2:
+Write a script which uses a prompt box to get an input. Validate that the input is an Integer between 1 and 30, and then print to the page asterisks (*) to represent the number. Your script must run until you have collected 3 valid inputs as well as generate 3 outputs (one output on one line).
+Example:
+Input: 4
+Input: 6
+Input: 12
+****
+******
+************
+
+<!DOCTYPE html>
+<html>
+<head> </head>
+<body>
+<script>
+var x=prompt("input 1");
+var y=prompt("input 2");
+var z=prompt("input 3");
+if(x<30 && y<30 && x<30)
+{
+for(i=1;i<=x;i++)
+{
+document.write("*");
+}
+document.write("<br>");
+for(i=1;i<=y;i++)
+{
+document.write("*");
+}
+document.write("<br>");
+for(i=1;i<=z;i++)
+{
+document.write("*");
+}
+document.write("<br>");
+}
+</script>
+</body>
+</html>
+
