@@ -1,0 +1,520 @@
+1)Assignment 1: 
+Create a simple page that lets users type in some temperature value in the Fahrenheit scale and when the user clicks a “Show results” button, to show the temperature in Celsius scale. For example, if the user types in 32, your results should show “0 degree Celsius.”
+Functionality
+At the least, your program should allow for the following
+User Input: One text field where the user will type in the temperature in Fahrenheit
+Input Validation: When the “Show results” button is clicked, your program should check to see if the user has left the text field empty and also if what the user typed is a number and not anything else.
+If there are problems (as in II. above) then your program should show appropriate error messages
+Display results: If there are no errors and user input is valid, then your program should show the results to the user.
+
+<!DOCTYPE html>
+    <html>
+    <title>Fahrenheit to Celcius Temperature Converter</title>
+    <body>
+    <h2>Temperature Converter</h2>
+    <p>Type a value in the Fahrenheit field to convert the value to Celsius:</p>
+    <p>
+    <label>Fahrenheit</label>
+    temperature in f =
+    <input id="num1" type="number" name="temperature" value="" required>
+    <button onclick="myFunction()"> click </button>
+    <p id="demo"></p>
+    <script type="text/javascript">
+    function myFunction()
+    {
+     var x =document.getElementById("num1").value, cel=0;
+     cel= (x - 32) * 5/9;
+     document.getElementbyId("demo").innerHTML = cel + " degree celcius";
+    }
+    </script>
+    </body>
+    </html>
+
+
+
+
+2) Assignment 2:
+Write a script which uses a prompt box to get an input. Validate that the input is an Integer between 1 and 30, and then print to the page asterisks (*) to represent the number. Your script must run until you have collected 3 valid inputs as well as generate 3 outputs (one output on one line).
+Example:
+Input: 4
+Input: 6
+Input: 12
+****
+******
+************
+
+  <!DOCTYPE html>
+  <html>
+  <head> </head>
+  <body>
+  <script>
+  var x=prompt("input 1");
+  var y=prompt("input 2");
+  var z=prompt("input 3");
+  if(x<30 && y<30 && x<30)
+  {
+  for(i=1;i<=x;i++)
+  {
+  document.write("*");
+  }
+  document.write("<br>");
+  for(i=1;i<=y;i++)
+  {
+  document.write("*");
+  }
+  document.write("<br>");
+  for(i=1;i<=z;i++)
+  {
+  document.write("*");
+  }
+  document.write("<br>");
+  }
+  </script>
+  </body>
+  </html>
+
+
+
+3)Assignment 3: 
+Create an HTML page that will Prompt the user: 
+It should take input for the number of rows and the number of columns
+Then it should create a table (HTML table) with the given number of row and columns
+Each cell of the table should contain the cell id (row#, col#)
+
+
+  
+  <!DOCTYPE html>
+  <html>
+  <head> </head>
+  <meta charset=utf-8 /> 
+  <title>Create a table</title> 
+  <style type="text/css"> 
+  body {margin: 30px;} 
+  </style>  
+  </head><body> 
+  <table id="myTable" border="1"> 
+  </table><form> 
+  <input type="button" onclick="createTable()" value="Create the table"> 
+  </form>
+  <script>
+  function createTable()
+  {
+  rn = window.prompt("Input number of rows", 1);
+  cn = window.prompt("Input number of columns",1);
+  
+ for(var r=0;r<parseInt(rn,10);r++)
+  {
+     var x=document.getElementById('myTable').insertRow(r);
+       for(var c=0;c<parseInt(cn,10);c++)  
+          {
+               var y=  x.insertCell(c);
+               y.innerHTML="Row-"+r+" Column-"+c; 
+          }
+   }
+}
+</script>
+</body>
+</html>
+
+
+4) Assignment 4:
+In this assignment, we will write a JavaScript web application called MyCalculator. All 3 files (the .js, .html and .css files should be in the MyCalculator folder and should be called MyCalculator.XXX).
+The program should do the following:
+-There should be one resultBox in the .html page and one runCalculator button. This should be clicked to run the program.
+-Present a menu of 7 choices to the user, using a prompt:
+            1. Add
+            2. Subtract
+            3. Multiply
+            4. Divide
+            5. Exponent
+            6. Mean
+            7. Quit
+- If the user selects anything other than 1-7, the program should print an error message and ask the user to select again. Use a for loop to check this.
+-If the user selects 1, the program should ask the user to enter the first number and then the second, and then print out the result in the resultBox. Then it should display the prompt menu again.
+-Similar behavior for choices 2,3 and 4: for subtract, subtract the second number from the first, for divide, divide the first number by the second.
+-We should do isNAN checks for all numbers. Use a for loop to check that each input is a number.
+-For choice 5, the program should ask for the base, and then the exponent, and then print out the answer, using the Math.pow() method or equivalent.
+-For choice 6, the program should prompt the user to input a series of numbers. The series ends, when the user enters a “***”. At this point, our program should print out the mean value, and then show the main menu prompt again.
+
+
+Calculator
+
+     HTML-
+
+    <!DOCTYPE html>
+    <html>
+
+    <head> </head>
+
+    <body>
+
+    <h1 style:color="red"> Calculator </h1>
+    <p> 1. Add 2. Subtract 3. Multiply 4. Divide 5. Exponent 6. Mean 7. Quit
+    </p>
+
+    <button onclick="calculator()">CLICK HERE</button>
+
+
+
+    <p>Result is
+        <span id="main"> </span>
+    </p>
+    </body>
+
+    </html>
+
+
+JS- 
+
+<script>
+    function calculator() {
+        var no = prompt("1add \n2) subtraction \n3) multiply \n4)divide \n5)Exponent \n6) Mean \n7) Quit");
+        if (no == 1) {
+            var firstNumber = prompt("enter your first number");
+            var secondNumber = prompt("enter your second number");
+            var result = Number(firstNumber) + Number(secondNumber);
+            document.getElementById("main").innerHTML = result;
+        }
+
+        else if (no == 2) {
+            var firstNumber = prompt("enter your first number");
+            var secondNumber = prompt("enter your second number");
+            var result = Number(firstNumber) - Number(secondNumber);
+            document.getElementById("main").innerHTML = result;
+        }
+        else if (no == 3) {
+            var firstNumber = prompt("enter your first number");
+            var secondNumber = prompt("enter your second number");
+            var result = Number(firstNumber) * Number(secondNumber);
+            document.getElementById("main").innerHTML = result;
+        }
+        else if (no == 4) {
+            var firstNumber = prompt("enter your first number");
+            var secondNumber = prompt("enter your second number");
+            var result = Number(firstNumber) / Number(secondNumber);
+            document.getElementById("main").innerHTML = result;
+        }
+        else if (no == 5) {
+            var firstNumber = prompt("enter your first number");
+            var secondNumber = prompt("enter your second number");
+            var result = Math.pow(firstNumber, secondNumber);
+            document.getElementById("main").innerHTML = result;
+        }
+        else if (no == 6) {
+            var sum = 0;
+            var count = 0;
+            while (number != "***") {
+                count++;
+                sum = sum + parseInt(number);
+                number = prompt("enter a value")
+            }
+            document.getElementById("main").innerHTML = sum / count;
+        }
+        else if (no >= 8) {
+            alert("error");
+            var no = prompt("wrong choice enter secondNumberour number again");
+        }
+    }
+</script>
+
+
+5)In this assignment you will practice basic HTML, Javascript and CSS concepts
+You are asked to build a page to order pizza! The page asks the user to enter information regarding the pizza order and then see a summary of what have been entered. The page is static HTML; however, part of the page will be dynamically built as it will be explained below.
+ 
+Figure 1
+The page consists of the following fields:
+1. Customer Name & Email (Input fields)
+2. Toppings Options (Check Boxes)
+3. Delivery method (Radio Buttons)
+4. Tip amount (Drop Down Menu), values are 15%, 20%, and 25%
+5. Address (Text Area)
+6. Action Buttons
+7. Help Text (Text Area)
+8. Summary of Order (Table)
+All the fields are static fields except the last one (Summary Table) which is built based on the values entered by the user.
+CSS is used to apply the following visual properties:
+• Input fields width is 600px
+• Font type: arial
+• Font size: 80%
+• Background: light gray (#eee)
+• Margin: 20px
+• Table even rows: background color light gray (#eee)
+• Table odd rows: background color white (#fff)
+• Table header row: background color black, font color white
+This page should implement the following actions (see Figure 2):
+1. The Help Text (Field # 1 in Figure 2) is responsible of showing a Hint message to
+explaining information about the field that is currently focused (cursor is on the field).
+If there is no focus on any field, display a default hint message. Messages are
+displayed on (Table 1).
+2. Submit Button should check that all fields are filled otherwise display an error
+message indicating that there exist missing values.
+3. Clear All: Clear All fields.
+4. Show Summary: This button is initially disabled. It is enables only when submit
+button is pressed and all fields values are valid. Clicking this button should build the Summary Table (see #2 in Figure 2). The table will summarize the pizza order based on what have been filled. The table should show:
+• Customer Name
+• Customer Email
+• Customer Address
+• Toppings selected
+• Delivery option
+• Total Price based on this formula: (base price + 1.5 * #of toppings + delivery fee)*1.0+tip. Where: base price= 10 and delivery is 5. For example, if 3 toppings are selected, delivery is NOT checked and 20% tip is selected, total is (10 + 1.5 * 3 + 0 ) * 1.2 = $17.4
+
+
+
+
+HTML CODE:
+
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Pizza</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script src="pizza.js"></script>
+    </head>
+   <body bgcolor="cyan" >
+    <form name="frm" id="frm" onsubmit="return IsEmpty()">
+       <div class="name">Name :
+       <input type="text" id="name" onKeyup="checkform()" placeholder="Enter your Name..." required>
+        </div>
+        <div class="email">Email :
+        <input type="text" id="email" onKeyup="checkform()" placeholder="Enter Email ID..." >
+        </div>
+        <div class="Toppings">
+            <h4>Toppings :</h4>
+            Extra cheese
+            <input type="checkbox" id="ExtraCheese" value="Extra cheese"> Pepperoni
+            <input type="checkbox" id="Pepperoni" value="Pepperoni"> Olives
+            <input type="checkbox" id="Olives" value="Olives"> Pepper
+            <input type="checkbox" id="Pepper" value="Pepper"> Bacon
+            <input type="checkbox" id="Bacon" value="Bacon"> Tomatoes
+            <input type="checkbox" id="Tomatoes" value="Tomatoes"> Mushrooms
+            <input type="checkbox" id="Mushrooms" value="Mushrooms">
+        </div>
+        <div>
+            <b>How do you want to get your pizza! </b>
+            Delivery
+            <input type="radio" name="delivery" id="delivery" value="Delivery"> Pickup
+            <input type="radio" name="delivery" id="pickup" value="Pickup">
+        </div>
+        <div>
+            <b>Tip ?</b>
+            <select name="" id="tip">
+                <option value="15">15%</option>
+                <option value="20">20%</option>
+                <option value="25">25%</option>
+            </select>
+            <hr>
+        </div>
+        <div class="Address">
+            <p>
+                <b style="margin: 0px">Address </b>
+            </p>
+            <textarea id="AddressText" required>
+            </textarea>
+            <br>
+        </div>
+        <div class="ActionButtons">
+            <input id="submitbutton" type="submit" value="Submit">
+            <input type="reset" value="Reset">
+            <input type="button" onclick="tbl()" value="Show Summary">
+        </div>
+        <center><h1>Pizza Order Summary</h1></center>
+   <center>
+        <table id="Summary">
+            <tr>
+                <td>Name</td>
+                <td id="tName"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td id="tEmail"></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td id="tAddress"></td>
+            </tr>
+            <tr>
+                <td>Toppings</td>
+                <td id="tToppings"></td>
+            </tr>
+            <tr>
+                <td>Delivery ?</td>
+                <td id="tDelivery"></td>
+            </tr>
+            <tr>
+                <td>Tip Amount</td>
+                <td id="tTip"></td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td id="tTotal"></td>
+            </tr>
+        </table>
+  </center>
+    </form>
+ </body>
+ </html>
+
+
+
+CSS CODE:
+
+     .name{
+     margin: 5px;
+     padding: 5px;
+      }
+   .email{
+    margin: 5px;
+    padding: 5px;
+      }
+   .Toppings{
+    margin: 5px;
+    padding: 5px;
+      }
+    input{
+    padding: 5px;
+    margin-right: 5px;
+      }
+    b{
+    padding: 5px;
+    margin: 5px;
+     }
+    textarea{
+    width: 250px;
+    height: 80px;
+     }
+   .Address{
+    padding: 5px;
+    margin: 5px;
+      }
+   .ActionButtons{
+    padding: 5px;
+    margin: 5px;
+      }
+  table, td {
+    border: 1px solid black;
+        border-collapse: collapse;
+    }
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  tr:nth-child(even) {background-color: #eee;}
+
+
+JAVASCRIPT CODE:
+
+     function isNumber(x) {
+    var val = "^[a-zA-Z0-9]{,30}";
+    alert("check");
+    if (x.value.length == 0) {
+        alert("message");
+        return false;
+         } 
+    else {
+        alert("true");
+        return true;
+       }
+    }
+    function IsEmpty() {
+    if ( document.forms['frm']['name'].value === "") {
+        alert("empty");
+        return false;
+        }
+    return true;
+    }
+    function addRow() {
+    var table = document.getElementById("Summary");
+    var rowCount = table.rows.length;
+    var row = table.insertRow(rowCount);
+    var cell1 = row.insertCell(0);
+    cell1.innerHTML = "cell 1 text";
+    var cell2 = row.insertCell(1);
+    cell2.innerHTML = "cell 2 text";
+    console.log("table e");
+     }
+     function tbl() {
+    var delivery = false;
+    rate_value = '';
+    if (document.getElementById('delivery').checked) {
+        delivery = true;
+    } 
+    else if (document.getElementById('pickup').checked) {
+        delivery = false;
+    }
+    var Toppings =[];
+    if (document.getElementById("ExtraCheese").checked) {
+        Toppings .push("Extra Cheese");
+    }
+    if (document.getElementById("Pepperoni").checked) {
+        Toppings .push("Pepperoni");
+    }
+    if (document.getElementById("Olives").checked) {
+        Toppings .push("Olives");
+    }
+    if (document.getElementById("Pepper").checked) {
+        Toppings .push("Pepper");
+    }
+    if (document.getElementById("Bacon").checked) {
+        Toppings .push("Bacon");
+    }
+    if (document.getElementById("Tomatoes").checked) {
+        Toppings .push("Tomatoes");
+    }
+    if (document.getElementById("Mushrooms").checked) {
+        Toppings .push("Mushrooms");
+    }
+    console.log(Toppings);
+    for(i=0;i<Toppings.length;i++){
+        insertRow(i,Toppings[i]);
+    }
+    document.getElementById("tName").innerHTML = document.getElementById("name").value;
+    document.getElementById("tEmail").innerHTML = document.getElementById("email").value;
+    document.getElementById("tAddress").innerHTML = document.getElementById("AddressText").value;
+    document.getElementById("tDelivery").innerHTML = delivery;
+    document.getElementById("tTip").innerHTML = document.getElementById("tip").value+" %";
+    var basePrice=10;
+    var deliveryCharge=0;
+    if(delivery){
+        deliveryCharge=5;
+    }
+    var tipPercent=document.getElementById("tip").value;
+    var total=(basePrice + (1.5*Toppings.length) + deliveryCharge)*(1.0 + tipPercent/100);
+    document.getElementById("tTotal").innerHTML =total;
+      }
+     function insertRow(i,Toppings){
+    var table = document.getElementById("Summary");
+    var nameRow = table.insertRow(i+4);
+    var nameCell1 = nameRow.insertCell(0);
+    nameCell1.innerHTML = "Toppings "+ ++i;
+    var nameCell2 = nameRow.insertCell(1);
+    nameCell2.innerHTML = Toppings;
+      }
+    function createTable() {
+    var table = document.getElementById("Summary");
+    var nameRow = table.insertRow(0);
+    var nameCell1 = nameRow.insertCell(0);
+    nameCell1.innerHTML = "Name";
+    var nameCell2 = nameRow.insertCell(1);
+    nameCell2.innerHTML = "Pavan";
+    var emailRow = table.insertRow(1);
+    var nameCell1 = nameRow.insertCell(0);
+    nameCell1.innerHTML = "Name";
+     }
+    function checkform()
+    {
+        var f = document.forms["frm"].elements;
+        var cansubmit = true;
+        for (var i = 0; i < f.length; i++) {
+            if (f[i].value.length == 0) cansubmit = false;
+        }
+        if (cansubmit) {
+            document.getElementById('submitbutton').disabled = !cansubmit;
+        }
+    }
+
+
+
+
